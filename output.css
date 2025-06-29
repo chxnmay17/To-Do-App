@@ -7,8 +7,17 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-red-200: oklch(88.5% 0.062 18.334);
+    --color-amber-200: oklch(92.4% 0.12 95.746);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
+    --color-amber-950: oklch(27.9% 0.077 45.635);
+    --color-cyan-600: oklch(60.9% 0.126 221.723);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -159,39 +168,61 @@
   }
 }
 @layer utilities {
-  .table {
-    display: table;
+  .m-\[10\%\] {
+    margin: 10%;
   }
-  .border-collapse {
-    border-collapse: collapse;
+  .mt-20 {
+    margin-top: calc(var(--spacing) * 20);
   }
-  .resize {
-    resize: both;
+  .grid {
+    display: grid;
+  }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-cyan-600 {
+    border-color: var(--color-cyan-600);
+  }
+  .bg-amber-200 {
+    background-color: var(--color-amber-200);
+  }
+  .bg-amber-600 {
+    background-color: var(--color-amber-600);
+  }
+  .bg-amber-950 {
+    background-color: var(--color-amber-950);
+  }
+  .bg-gray-700 {
+    background-color: var(--color-gray-700);
+  }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
   }
-  .bg-red-600 {
-    background-color: var(--color-red-600);
+  .bg-red-200 {
+    background-color: var(--color-red-200);
   }
-  .underline {
-    text-decoration-line: underline;
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-white {
+    color: var(--color-white);
   }
 }
 @property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-outline-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
@@ -200,7 +231,6 @@
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
-      --tw-outline-style: solid;
     }
   }
 }
