@@ -29,15 +29,15 @@
         <!-- ADD TASK  -->
         <div class="ml-[10px] mr-[10px] relative mt-[10px]">
             <input type="text" name="addTask" id="addTask" placeholder="Add Your Task" class="bg-gray-500 rounded-[30px] w-full p-[10px] pl-[20px]" maxlength="20">
-            <button type="button" onclick="alert('Hi')" class="absolute top-0 right-[15px] bg-gray-500  rounded-2xl p-1 h-[20px]">
+            <button type="button" id="addButton" class="absolute top-0 right-[15px] bg-gray-500  rounded-2xl p-1 h-[20px]">
                 <ion-icon name="add-circle-outline" class="text-gray-50 text-4xl font-bold hover:text-gray-800"></ion-icon>
             </button>
         </div>
         
         
         <div class="">
-            <ul>
-                <li>hi</li>
+            <ul id="taskList">
+                
             </ul>
         </div>
        
@@ -58,13 +58,49 @@
 
    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script>500
-       function sayHi(){
-            
-       }
+<script>
 
-       const input= document.getElementById("addTask");
-       input.addEventListener("keydown",sayHi);
+let tasks = [];
+const input = document.getElementById("addTask");
+const butInput = document.getElementById("addButton");
+const taskList = document.getElementById("taskList");
+
+input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
+
+butInput.addEventListener("pointerdown", () => {
+    addTask();
+});
+
+function addTask() {
+    const taskText = input.value.trim();
+    if (taskText === "") return;
+
+    let value = {
+        task: taskText,
+        completed: false
+    };
+
+    tasks.push(value);
+    input.value = '';
+    console.log(tasks);
+
+    displayTask();
+}
+
+function displayTask(){
+    taskList.innerHTML='';
+    tasks.forEach((item,index)=>{
+        const li=document.createElement("li");
+        li.className="text-white p-2 border-b border-gray-600";
+        li.textContent=item.task;
+        taskList.appendChild(li);
+    });
+}
+
 
 </script>
 </body>
