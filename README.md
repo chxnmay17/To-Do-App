@@ -19,7 +19,7 @@ A simple and responsive ToDo list application built with **HTML**, **JavaScript*
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/chxnmay17/todo-app.git](https://github.com/chxnmay17/To-Do-App.git)
+git clone https://github.com/chxnmay17/To-Do-App.git
 cd todo-app
 ```
 
